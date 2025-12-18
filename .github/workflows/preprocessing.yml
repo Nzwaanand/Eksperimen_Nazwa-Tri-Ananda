@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pandas numpy scikit-learn
+         pip install pandas matplotlib seaborn
 
       - name: Run preprocessing
         run: |
