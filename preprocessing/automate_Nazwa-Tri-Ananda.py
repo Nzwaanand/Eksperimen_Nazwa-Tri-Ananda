@@ -37,13 +37,9 @@ def preprocess_data(input_path: str):
     )
 
     # =====================
-    # Encoding sederhana (tanpa sklearn)
+    # Encoding sederhana 
     # =====================
-    encoders = {}
-    for col in categorical_cols:
-        le = LabelEncoder()
-        df[col] = le.fit_transform(df[col].astype(str))
-        encoders[col] = le
+    categorical_cols = df.select_dtypes(include='object').columns for col in categorical_cols: df[col] = df[col].astype('category').cat.codes
 
     # =====================
     # Simpan ke folder preprocessing
