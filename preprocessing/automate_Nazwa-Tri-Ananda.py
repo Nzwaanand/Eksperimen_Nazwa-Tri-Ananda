@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+from sklearn.preprocessing import LabelEncoder
 
 INPUT_FILE = "online_sales_dataset.csv"
 OUTPUT_DIR = "preprocessing"
@@ -38,9 +39,11 @@ def preprocess_data(input_path: str):
     # =====================
     # Encoding sederhana (tanpa sklearn)
     # =====================
-    categorical_cols = df.select_dtypes(include='object').columns
+    encoders = {}
     for col in categorical_cols:
-        df[col] = df[col].astype('category').cat.codes
+        le = LabelEncoder()
+        df[col] = le.fit_transform(df[col].astype(str))
+        encoders[col] = le
 
     # =====================
     # Simpan ke folder preprocessing
