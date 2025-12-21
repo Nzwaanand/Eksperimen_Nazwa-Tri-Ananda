@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
-from sklearn.preprocessing import LabelEncoder
 
 INPUT_FILE = "online_sales_dataset.csv"
 OUTPUT_DIR = "preprocessing"
