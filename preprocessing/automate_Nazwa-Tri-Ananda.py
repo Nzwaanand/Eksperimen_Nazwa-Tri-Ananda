@@ -38,7 +38,8 @@ def preprocess_data(input_path: str):
     # =====================
     # Encoding sederhana 
     # =====================
-    categorical_cols = df.select_dtypes(include='object').columns for col in categorical_cols: df[col] = df[col].astype('category').cat.codes
+    categorical_cols = df.select_dtypes(include='object').columns 
+    for col in categorical_cols: df[col] = df[col].astype('category').cat.codes
 
     # =====================
     # Simpan ke folder preprocessing
