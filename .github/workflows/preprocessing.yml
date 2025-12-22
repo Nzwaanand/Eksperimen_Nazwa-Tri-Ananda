@@ -2,9 +2,9 @@ name: Preprocessing Pipeline
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    paths:
+      - '**/automate_*.py'
+      - 'online_sales_dataset.csv'
 
 jobs:
   preprocess:
